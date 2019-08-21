@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Image\Anime.gif" />
+    <None Remove="Image\noanime.gif" />
+    <None Remove="Image\noanime.jpg" />
+    <None Remove="Image\noanime.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Image\anime.gif" />
+    <EmbeddedResource Include="Image\noanime.gif" />
+    <EmbeddedResource Include="Image\noanime.jpg" />
+    <EmbeddedResource Include="Image\noanime.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ReactiveProperty" Version="6.0.3" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.1.823" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.1.823" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.673156" />
+    <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1367" />
+  </ItemGroup>
+
+</Project>

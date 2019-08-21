@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FFImageLoadingTest.Views.MainPage"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <StackLayout>
+            <Label Text="anime.gif" />
+            <ff:CachedImage Source="resource://FFImageLoadingTest.Image.anime.gif" />
+            <Label Text="rancyan.png" />
+            <ff:CachedImage Source="resource://FFImageLoadingTest.Image.noanime.png"/>
+            <Label Text="noanime.gif" />
+            <ff:CachedImage Source="resource://FFImageLoadingTest.Image.noanime.gif"/>
+            <Label Text="noanime.jpg" />
+            <ff:CachedImage Source="resource://FFImageLoadingTest.Image.noanime.jpg"/>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
