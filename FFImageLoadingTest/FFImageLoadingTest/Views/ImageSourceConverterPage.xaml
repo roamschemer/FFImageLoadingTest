@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            xmlns:cv="clr-namespace:FFImageLoadingTest.Converters"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="FFImageLoadingTest.Views.ImageSourceConverterPage"
+            Title="ImageSourceConverter">
+    
+    <TabbedPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS">0,20,0,0</On>
+        </OnPlatform>
+    </TabbedPage.Padding>
+
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+            <cv:ImageSourceConverter x:Key="ImageSourceConverter"/>
+        </ResourceDictionary>
+    </TabbedPage.Resources>
+
+    <ContentPage Title="単発">
+        <ScrollView>
+            <StackLayout>
+                <Label Text="anime.gif" />
+                <Image Aspect = "AspectFit" Source="{Binding Image1.Value, Converter={StaticResource ImageSourceConverter}}" />
+                <Label Text="rancyan.png" />
+                <Image Aspect = "AspectFit" Source="{Binding Image2.Value, Converter={StaticResource ImageSourceConverter}}" />
+                <Label Text="noanime.gif" />
+                <Image Aspect = "AspectFit" Source="{Binding Image3.Value, Converter={StaticResource ImageSourceConverter}}" />
+                <Label Text="noanime.jpg" />
+                <Image Aspect = "AspectFit" Source="{Binding Image4.Value, Converter={StaticResource ImageSourceConverter}}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+
+    <ContentPage Title="ListView">
+        <ListView ItemsSource="{Binding ListView}" HasUnevenRows="false" RowHeight="80" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" >
+                            <Image Aspect = "AspectFit" Source="{Binding Image, Converter={StaticResource ImageSourceConverter}}" />
+                            <Label Text="夏狂乱" VerticalOptions = "Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage>
+
+</TabbedPage>

@@ -30,6 +30,8 @@ namespace FFImageLoadingTest
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<FFImageLoadingPage, FFImageLoadingPageViewModel>();
+            containerRegistry.RegisterForNavigation<ImageSourceConverterPage, ImageSourceConverterPageViewModel>();
         }
     }
 }

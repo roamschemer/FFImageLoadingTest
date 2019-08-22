@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="FFImageLoadingTest.Views.FFImageLoadingPage"
+            Title="FFImageLoadingPage">
+    
+    <TabbedPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS">0,20,0,0</On>
+        </OnPlatform>
+    </TabbedPage.Padding>
+
+    <ContentPage Title="単発">
+        <ScrollView>
+            <StackLayout>
+                <Label Text="anime.gif" />
+                <ff:CachedImage Source="resource://FFImageLoadingTest.Image.anime.gif" />
+                <Label Text="rancyan.png" />
+                <ff:CachedImage Source="resource://FFImageLoadingTest.Image.noanime.png"/>
+                <Label Text="noanime.gif" />
+                <ff:CachedImage Source="resource://FFImageLoadingTest.Image.noanime.gif"/>
+                <Label Text="noanime.jpg" />
+                <ff:CachedImage Source="resource://FFImageLoadingTest.Image.noanime.jpg"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+
+    <ContentPage Title="ListView">
+        <ListView ItemsSource="{Binding ListView}" HasUnevenRows="false" RowHeight="80" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" >
+                            <ff:CachedImage Aspect = "AspectFit" Source="{Binding}" />
+                            <Label Text="夏狂乱" VerticalOptions = "Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage>
+    
+</TabbedPage>
